@@ -1,0 +1,21 @@
+
+-- Header :
+	- Fix Size of RSVP btn when on small screen size.
+	- Picture continuously gets cut off as screen size decreases.
+
+-- Details :
+	- Date & Time & Place of Wedding & Reception
+
+-- Gallery :
+	-
+
+
+1200 - Desktop
+768 - iPad
+320 - iPhone 5
+
+
+- Name
+- Meal Option
+- Number of Guests
+- Song Requests (Optional)
