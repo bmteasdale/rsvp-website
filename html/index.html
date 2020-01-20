@@ -51,7 +51,7 @@
 
     </nav>
 
-    <!-- Text on container -->
+    <!-- Text on title container -->
     <div class="title-text">
       <h1 class="title-header-1">Mallory & Shawn</h1>
       <hr class="top-hr">
@@ -62,7 +62,7 @@
     <!-- Button redirects you to RSVP (new page or pop up) -->
     <button type="button" class="btn btn-outline-light btn-lg responsive-text" data-toggle="modal" data-target="#myModal">RSVP</button>
 
-    <!-- Pop-up Modal -->
+    <!-- Pop-up Modal for RSVP form-->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog modal-lg">
 
@@ -74,12 +74,44 @@
           <div class="modal-body">
             <i class="fas fa-user-edit fa-2x rsvp-icon"></i>
             <h1 style="font-family: serif;">RSVP</h1>
-            <form action="" method="POST">
-              <input type="name" placeholder="Full Name">
-              <input type="number" placeholder="# of Guests Attending">
-              <!-- Meal Choice -->
-              <!-- <h3>Meal Options</h3> -->
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Full Name</label>
+                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Please Enter Full Name">
+              </div>
+              <!-- Group of material radios - option 1 -->
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios">
+                <label class="form-check-label" for="materialGroupExample1">Joyfully Accepts</label>
+              </div>
 
+              <!-- Group of material radios - option 2 -->
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
+                <label class="form-check-label" for="materialGroupExample2">Regretfully Declines*</label>
+              </div><br  /><br />
+              <p>*Please ignore the following if 'Regretfully Declines' was chosen.</p>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Meal Selection</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Please choose one of the following..</option>
+                  <option>Roast Hip of Beef</option>
+                  <option>Baked Atlantic Salmon</option>
+                  <option>Roasted Quarter Chicken</option>
+                  <option>Vegetarian Lasagna</option>
+                </select>
+              </div>
+              <!--
+              <div class="form-group">
+                <label for="example-number-input">Number of Guests Attending</label>
+                <input class="form-control" type="number" value="" id="example-number-input">
+              </div>
+              -->
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Please place any song requests you may have.</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-warning">Send</button>
             </form>
           </div>
         </div>
@@ -88,31 +120,32 @@
 
   </section>
 
+  <!-- Details Section -->
   <section id="details">
     <div class="row">
       <div class="col-lg-6 details-container">
-      <h1 class="details-header">The Details</h1>
-      <hr class="details-hr"/>
-        <p>Friday, September 11th, 2020</p>
-        <p>5:00 PM</p>
+        <h1 class="details-header">The Details</h1>
+        <hr class="details-hr" />
+        <p class="details-p">Friday, September 11th, 2020</p>
+        <p class="details-p">5:00 PM</p>
         <br><br><br />
-        <h3>Ceremony & Reception</h3><br />
-        <p>Hatfield Farms</p>
-        <p>1840 Hammonds Plains Rd, <br />Hammonds Plains, NS B4B 1P4</p>
-        <hr class="details-hr"/>
+        <h3 class="details-h3">Ceremony & Reception</h3><br />
+        <p class="details-p">Hatfield Farms</p>
+        <p class="details-p">1840 Hammonds Plains Rd, <br />Hammonds Plains, NS B4B 1P4</p>
+        <hr class="details-hr" />
       </div>
       <div class="col-lg-6 details-container">
         <div class="names">
           <h1 class="details-header">The Wedding Party</h1>
-          <p>Mallory Berkvens - Bride</p>
-          <p>Carissa Chapman - Maid of Honour</p>
-          <p>Kaitlan Kelly - Bridesmaid</p>
-          <p>Jenny Bowie - Bridesmaid</p>
-          <p>Shawn Teasdale - Groom</p>
-          <p>Brendan Teasdale - Best Man</p>
-          <p>John Weir - Groomsman</p>
-          <p>Steven Gillis - Groomsman</p>
-          <p>Tyler VanOirschot - Groomsman</p>
+          <p class="details-p">Mallory Berkvens - Bride</p>
+          <p class="details-p">Carissa Chapman - Maid of Honour</p>
+          <p class="details-p">Kaitlan Kelly - Bridesmaid</p>
+          <p class="details-p">Jenny Bowie - Bridesmaid</p>
+          <p class="details-p">Shawn Teasdale - Groom</p>
+          <p class="details-p">Brendan Teasdale - Best Man</p>
+          <p class="details-p">John Weir - Groomsman</p>
+          <p class="details-p">Steven Gillis - Groomsman</p>
+          <p class="details-p">Tyler VanOirschot - Groomsman</p>
         </div>
       </div>
     </div>
@@ -172,19 +205,10 @@
 
   </section>
 
-  <!-- <section id="party">
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-  </div>
-  </section> -->
-
   <!-- Footer of Index Page -->
   <section id="footer">
     <div class="copy">
-      <a class="footer-icon-link"href="https://ca.linkedin.com/in/brendan-teasdale-a073b5196?trk=people-guest_profile-result-card_result-card_full-click"><i class="fab fa-linkedin fa-2x footer-icon"></i></a>
+      <a class="footer-icon-link" href="https://ca.linkedin.com/in/brendan-teasdale-a073b5196?trk=people-guest_profile-result-card_result-card_full-click"><i class="fab fa-linkedin fa-2x footer-icon"></i></a>
       <a class="footer-icon-link" href="https://www.instagram.com/bmteasdale/"><i class="fab fa-instagram fa-2x footer-icon"></i></a>
       <a class="footer-icon-link" href="https://www.facebook.com/brendan.teasdale.7"><i class="fab fa-facebook-square fa-2x footer-icon"></i></a><br />
       &copy; Brendan Teasdale.
@@ -195,8 +219,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- <button onclick="" id="submit-btn" class="btn btn-dark">Submit</a> -->
