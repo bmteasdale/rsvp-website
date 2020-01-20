@@ -206,7 +206,7 @@ button:focus { outline: none; }
 
 
 /* Changes based on screen size */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .btn {
     padding: 8px 15px;
   }
