@@ -1,3 +1,4 @@
+/* CSS Stylesheet for index.html */
 /* deb881  f6cd90  eadea6  efe9cc */
 html {
   padding: 0;
@@ -6,19 +7,18 @@ html {
 
 #title {
   width: 100vw;
-  background-image: "../images/Mal-Shawn-header.png";
+  background-image: url(../images/Mal-Shawn-header.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding-bottom: 100px;
   text-align: center;
   color: #eadea6;
-  /* overflow: auto; */
 }
 .row {
   width: 100%;
+  margin-left: 0;
 }
-
 .navbar {
   font-family: 'Montserrat';
   background-color: #efe9cc !important;
@@ -26,17 +26,14 @@ html {
 .nav-item {
   padding: 0 8px;
 }
-
 .title-text {
   margin-top: 20%;
   padding-bottom: 50px;
 }
-
 .title-header-1 {
   font-family: 'Dancing Script', cursive;
   font-size: 10vw;
 }
-
 .top-hr {
   background-color: #eadea6;
 ;
@@ -47,9 +44,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   font-size: 2vw;
   letter-spacing: 6px;
-  /* text-decoration: underline; */
 }
-
 .btn:hover {
   color: #f6cd90;
 }
@@ -62,43 +57,42 @@ html {
   background-color: #eadea6;
   color:#FFF;
 }
-
 .close {
   font-size: 2.5rem;
   transform: rotate(45deg);
 }
-
 .modal-body {
   align-items: center;
 }
-
 .rsvp-icon {
   padding: 30px;
 }
-
-input {
+.form-check-input {
   margin: 3% auto;
   width: 25vw;
   display: block;
 }
-
+label {
+  padding-top: 15px;
+}
+.radio-button {
+  margin-right: 5px;
+}
+.radio-inline {
+  padding: 0 50px 50px;
+}
 .btn {
   border-color: #eadea6;
   color: #eadea6;
   margin: 0 auto;
   text-align: center;
   padding: 7px;
-  /* width: 10vw; */
   border-radius: none;
 }
-
 .responsive-text {
   font-size: 1.5vmax;
 }
-
 button:focus { outline: none; }
-
-
 .dividing-hr {
   width: 100%;
   height: 3px;
@@ -108,27 +102,24 @@ button:focus { outline: none; }
   margin-top: 0;
 }
 
+
 /* Details Section */
 
 #details {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   padding-top: 70px;
-  /* padding-bottom: 70px; */
   background-color: #efe9cc;
 }
-
 .details-container {
   padding-bottom: 70px;
 }
-
 .details-header {
   font-family: 'Dancing Script', cursive;
   font-weight: 100;
   font-size: 350%;
   padding-bottom: 50px;
 }
-
 .details-hr {
   height:2px;
   width: 50vw;
@@ -140,39 +131,26 @@ button:focus { outline: none; }
 #gallery {
   background-color: #eadea6;
   font-family: 'Montserrat', sans-serif;
-  /* height: 1000px; */
   padding-bottom: 150px;
   text-align: center;
   padding-top: 70px;
   margin-top:0;
 }
-
 .gallery-header {
   font-family: 'Dancing Script', cursive;
   font-weight: 100;
   font-size: 350%;
 }
-
 .outer-carosel-container {
   padding-top: 75px;
   margin: 0 auto;
-  /* width: 90vw; */
   height: 100%;
 }
-
-/* .carousel-control-prev {
-  padding-left: 70px;
-}
-.carousel-control-next {
-  padding-right: 70px;
-} */
-
 .credit {
   padding-top: 5px;
   float: right;
   padding-right: 50px;
 }
-
 .credit-link {
   text-decoration: none;
   color: grey;
@@ -184,6 +162,7 @@ button:focus { outline: none; }
 
 
 /* Footer Section */
+
 #footer {
   height: 150px;
   background-color: #efe9cc;
@@ -206,24 +185,18 @@ button:focus { outline: none; }
 
 
 /* Changes based on screen size */
+
 @media screen and (max-width: 768px) {
   .btn {
     padding: 8px 15px;
   }
-
-  .navbar {
-    min-height: 90px;
+  .radio-inline {
+    padding: 0 50px 10px;
   }
-
-  .navbar-brand {
-    font-size: 1.5rem;
+  .title-header-1 {
+    font-size: 12vw;
   }
-
-  .details-h3 {
-    font-size: larger;
+  .title-header-3 {
+    font-size: 2.5vw;
   }
-  .details-p {
-    font-size: larger;
-  }
-
 }

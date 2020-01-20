@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mallory & Shawn</title>
 
   <!-- Google Fonts -->
@@ -74,43 +75,39 @@
           </div>
           <div class="modal-body">
             <i class="fas fa-user-edit fa-2x rsvp-icon"></i>
-            <h1 style="font-family: serif;">RSVP</h1>
+            <h1 style="font-family: 'Dancing Script';">RSVP</h1>
             <form>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Full Name</label>
                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Please Enter Full Name">
               </div>
-              <!-- Group of material radios - option 1 -->
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios">
-                <label class="form-check-label" for="materialGroupExample1">Joyfully Accepts</label>
-              </div>
-
-              <!-- Group of material radios - option 2 -->
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
-                <label class="form-check-label" for="materialGroupExample2">Regretfully Declines*</label>
-              </div><br  /><br />
-              <p>*Please ignore the following if 'Regretfully Declines' was chosen.</p>
+              <p>Will you be attending?</p>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" class="radio-button" checked>Joyfully Accepts
+              </label>
+              <label class="radio-inline">
+                <input type="radio" class="radio-button" name="optradio">Regretfully Declines
+              </label>
+              <p>* Ignore the following if 'Regretfully Declines' was chosen.</p>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Meal Selection</label>
                 <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Please choose one of the following..</option>
+                  <option>Please select your meal..</option>
                   <option>Roast Hip of Beef</option>
                   <option>Baked Atlantic Salmon</option>
                   <option>Roasted Quarter Chicken</option>
                   <option>Vegetarian Lasagna</option>
                 </select>
               </div>
-              <!--
+              
               <div class="form-group">
                 <label for="example-number-input">Number of Guests Attending</label>
-                <input class="form-control" type="number" value="" id="example-number-input">
+                <input class="form-control" type="number" min="0" id="example-number-input">
               </div>
-              -->
+             
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Please place any song requests you may have.</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
               </div>
               <button type="submit" class="btn btn-warning">Send</button>
             </form>
