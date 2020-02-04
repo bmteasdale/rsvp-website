@@ -7,7 +7,7 @@ html {
 
 #title {
   width: 100vw;
-  background-image: url(../images/Mal-Shawn-header.png);
+  background-image: url(./images/Mal-Shawn-header.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -36,7 +36,6 @@ html {
 }
 .top-hr {
   background-color: #eadea6;
-;
   height: 2px;
   width: 65%;
 }
@@ -73,6 +72,7 @@ html {
   display: block;
 }
 label {
+  font-size: 1.3rem;
   padding-top: 15px;
 }
 .warning-p {
@@ -147,6 +147,11 @@ button:focus { outline: none; }
   padding-top: 75px;
   margin: 0 auto;
   height: 100%;
+}
+.carousel-inner {
+  border-radius: 25px;
+  background-color: rgba(0,0,0,0);
+  overflow: hidden;
 }
 .credit {
   padding-top: 5px;
