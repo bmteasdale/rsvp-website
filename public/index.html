@@ -15,12 +15,12 @@
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css" type="text/css">
+  <link rel="stylesheet" href="../src/styles.css" type="text/css">
 
   <!-- Local JS -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
-    // JQuery for hiding html elements in rsvp modal.
+  // JQuery for hiding html elements in rsvp modal.
   $(document).ready(function(){
 
   $("#seeAnotherField").change(function() {
@@ -35,7 +35,7 @@
       $('#otherFieldDiv2').hide();
       $('#otherFieldDiv3').hide();
       $('#otherField').removeAttr('required');
-      $('#otherField').removeAttr('data-error');
+      $('#otherField').removeAttr('data-error'); 
     }
   });
   $("#seeAnotherField").trigger("change");
@@ -101,36 +101,36 @@
           <div class="modal-body">
             <i class="fas fa-user-edit fa-2x rsvp-icon"></i>
             <h1 style="font-family: 'Dancing Script';">RSVP</h1>
-            <form>
+            <form method="post" action="/rsvp-submit">
               <div class="form-group">
                 <label for="exampleFormControlInput1">Full Name</label>
-                <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Please Enter Full Name">
+                <input type="name" class="form-control" id="exampleFormControlInput1" name="fullName" placeholder="Please Enter Full Name" required>
               </div>
               <div class="form-group">
                 <label for="seeAnotherField">Will you be attending?</label>
-                <select class="form-control" id="seeAnotherField">
-                  <option value="no">----</option>
+                <select class="form-control" id="seeAnotherField" name="attendance" required>
+                  <option value="">----</option>
                   <option value="yes">Joyfully Accept</option>
                   <option value="no">Regretfully Decline</option>
                 </select>
               </div>
               <div class="form-group" id="otherFieldDiv">
                 <label for="otherField">Meal Selection</label>
-                <select class="form-control" id="otherField">
-                  <option>Please select your meal..</option>
-                  <option>Roast Hip of Beef</option>
-                  <option>Baked Atlantic Salmon</option>
-                  <option>Roasted Quarter Chicken</option>
-                  <option>Vegetarian Lasagna</option>
+                <select class="form-control" id="otherField" name="mealChoice">
+                  <option value="">Please select your meal..</option>
+                  <option value="Roast Hip of Beef">Roast Hip of Beef</option>
+                  <option value="Baked Atlantic Salmon">Baked Atlantic Salmon</option>
+                  <option value="Roasted Quarter Chicken">Roasted Quarter Chicken</option>
+                  <option value="Vegetarian Lasagna">Vegetarian Lasagna</option>
                 </select>
               </div>
               <div class="form-group" id="otherFieldDiv2">
                 <label for="FormControlTextarea1">If additional guests will be attending, please state their names and meal choices.</label>
-                <textarea class="form-control" id="FormControlTextarea1" rows="4"></textarea>
+                <textarea class="form-control" id="otherField2" rows="4" name="additionalGuests"></textarea>
               </div>
               <div class="form-group" id="otherFieldDiv3">
                 <label for="FormControlTextarea2">Please leave any song requests you may have.</label>
-                <textarea class="form-control" id="FormControlTextarea2" rows="4"></textarea>
+                <textarea class="form-control" id="otherField3" rows="4" name="songRequests"></textarea>
               </div>
               <button type="submit" class="btn btn-warning">Send</button>
             </form>
@@ -179,7 +179,7 @@
     <div class="outer-carosel-container">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
@@ -189,25 +189,25 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-17.jpg" alt="First slide">
+            <img class="d-block w-100" src="../src/images/MALLORY+SHAWN-17.jpg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-6.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../src/images/MALLORY+SHAWN-6.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-27.jpg" alt="Third slide">
+            <img class="d-block w-100" src="./src/images/MALLORY+SHAWN-27.jpg" alt="Third slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-1.jpg" alt="Fourth slide">
+            <img class="d-block w-100" src="./src/images/MALLORY+SHAWN-1.jpg" alt="Fourth slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-7.jpg" alt="Fifth slide">
+            <img class="d-block w-100" src="./src/images/MALLORY+SHAWN-7.jpg" alt="Fifth slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-14.jpg" alt="Sixth slide">
+            <img class="d-block w-100" src="./src/images/MALLORY+SHAWN-14.jpg" alt="Sixth slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="./images/MALLORY+SHAWN-16.jpg" alt="Seventh slide">
+            <img class="d-block w-100" src="./src/images/MALLORY+SHAWN-16.jpg" alt="Seventh slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
