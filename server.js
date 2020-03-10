@@ -1,10 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const chalk = require('chalk');
 const rsvpRouter = require('./server/routes/rsvpRoute');
 const messageRouter = require('./server/routes/messageRoute')
-const dbName = "Completed-RSVP's"
+require('dotenv').config()
 
 const app = express();
 
@@ -12,7 +11,7 @@ const app = express();
 app.use('/src', express.static(__dirname + '/src'));
 
 // MongoDB Atlas connection URI
-mongoose.connect('mongodb+srv://RSVPAdmin:admin@rsvp-form-data-e9b0b.mongodb.net/'+ dbName +'?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://'+ process.env.CLUSTER_USER +':' + process.env.CLUSTER_PASS +'@rsvp-form-data-e9b0b.mongodb.net/'+ process.env.DB_NAME +'?retryWrites=true&w=majority',
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -43,5 +42,4 @@ app.get('/message-submit', (req,res) => {
     res.sendFile(__dirname + '/public/message.html');
 });
 
-// localhost:8000
-app.listen(8000, () => { console.log(chalk.greenBright.inverse.bold('Server is running...')) });
+app.listen(process.env.PORT || 8000, () => { console.log(chalk.greenBright.inverse.bold(`Server is running on PORT ${process.env.PORT}`)) });
