@@ -28,14 +28,27 @@
       $('#otherFieldDiv').show();
       $('#otherFieldDiv2').show();
       $('#otherFieldDiv3').show();
-      $('#otherField').attr('required', '');
-      $('#otherField').attr('data-error', 'This field is required.');
+      $('#otherFieldDiv4').show();
+      $('#otherFieldDiv5').show();
+      $('#otherFieldDiv6').show();
+      $('#mealSelectionLabel').show();
+    } else if($(this).val() == "no"){
+      $('#otherFieldDiv').hide();
+      $('#otherFieldDiv2').hide();
+      $('#otherFieldDiv3').hide();
+      $('#otherFieldDiv4').hide();
+      $('#otherFieldDiv5').hide();
+      $('#otherFieldDiv6').hide();
+      $('#otherFieldDiv7').show();
+      $('#mealSelectionLabel').hide();
     } else {
       $('#otherFieldDiv').hide();
       $('#otherFieldDiv2').hide();
       $('#otherFieldDiv3').hide();
-      $('#otherField').removeAttr('required');
-      $('#otherField').removeAttr('data-error'); 
+      $('#otherFieldDiv4').hide();
+      $('#otherFieldDiv5').hide();
+      $('#otherFieldDiv6').hide();
+      $('#otherFieldDiv7').hide();
     }
   });
   $("#seeAnotherField").trigger("change");
@@ -100,66 +113,180 @@
           </div>
           <div class="modal-body">
             <i class="fas fa-user-edit fa-2x rsvp-icon"></i>
-            <h1 style="font-family: 'Dancing Script';">RSVP</h1>
+            <h1 style="font-family: 'Dancing Script'; text-align: center;">RSVP</h1>
             <form method="post" action="/rsvp-submit">
               <div class="form-group">
-                <label for="exampleFormControlInput1">Full Name</label>
+                <label class="form-label" for="exampleFormControlInput1">Full Name</label>
                 <input type="name" class="form-control" id="exampleFormControlInput1" name="fullName" placeholder="Please Enter Full Name" required>
               </div>
               <div class="form-group">
-                <label for="seeAnotherField">Will you be attending?</label>
-                <select class="form-control" id="seeAnotherField" name="attendance" required>
-                  <option value="">----</option>
-                  <option value="yes">Joyfully Accept</option>
-                  <option value="no">Regretfully Decline</option>
-                </select>
+                  <label class="form-label" for="seeAnotherField">Will you be attending?</label>
+                  <select class="form-control input-small" id="seeAnotherField" name="attendance" required>
+                      <option value="">----</option>
+                      <option value="yes">Joyfully Accept</option>
+                      <option value="no">Regretfully Decline</option>
+                  </select>
               </div>
-              <div class="form-group" id="otherFieldDiv">
-                <label for="otherField">Meal Selection</label>
-                <select class="form-control" id="otherField" name="mealChoice">
-                  <option value="">Please select your meal..</option>
-                  <option value="Roast Hip of Beef">Roast Hip of Beef</option>
-                  <option value="Baked Atlantic Salmon">Baked Atlantic Salmon</option>
-                  <option value="Roasted Quarter Chicken">Roasted Quarter Chicken</option>
-                  <option value="Vegetarian Lasagna">Vegetarian Lasagna</option>
-                </select>
-              </div>
-              <div class="form-group" id="otherFieldDiv2">
-                <label for="FormControlTextarea1">If additional guests will be attending, please state their names and meal choices.</label>
-                <textarea class="form-control" id="otherField2" rows="4" name="additionalGuests"></textarea>
-              </div>
-              <div class="form-group" id="otherFieldDiv3">
-                <label for="FormControlTextarea2">Please leave any song requests you may have.</label>
-                <textarea class="form-control" id="otherField3" rows="4" name="songRequests"></textarea>
-              </div>
-              <button type="submit" class="btn btn-warning">Send</button>
-            </form>
-          </div>
+              <div class="options">
+                <div class="form-group" id="otherFieldDiv" style="padding-top:10px;">
+                  <div class="card w-100">
+                    <div class="card-header" style="color: black;">
+                      Meal Selection
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <label class="d-inline-block" for="otherField">Roast Hip of Beef:</label>
+                        <select name="roastBeefQty" class="form-control form-control-sm d-inline-grid" style="width: auto;" id="otherField">
+                          <option value=0>----</option>
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
+                          <option value=6>6</option>
+                          <option value=7>7</option>
+                          <option value=8>8</option>
+                          <option value=9>9</option>
+                          <option value=10>10</option>
+                        </select>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="d-inline-block" for="salmonQty">Baked Atlantic Salmon:</label>
+                        <select name="salmonQty" class="form-control form-control-sm d-inline-grid" style="width: auto;">
+                          <option value=0>----</option>
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
+                          <option value=6>6</option>
+                          <option value=7>7</option>
+                          <option value=8>8</option>
+                          <option value=9>9</option>
+                          <option value=10>10</option>
+                        </select>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="d-inline-block" for="chickenQty">Roasted Quarter Chicken:</label>
+                        <select name="chickenQty" class="form-control form-control-sm d-inline-block" style="width: auto;">
+                          <option value=0>----</option>
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
+                          <option value=6>6</option>
+                          <option value=7>7</option>
+                          <option value=8>8</option>
+                          <option value=9>9</option>
+                          <option value=10>10</option>
+                        </select>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="d-inline-block" for="lasagnaQty">Vegetarian Lasagna:</label>
+                        <select name="lasagnaQty" class="form-control form-control-sm d-inline-grid" style="width: auto;">
+                          <option value=0>----</option>
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
+                          <option value=6>6</option>
+                          <option value=7>7</option>
+                          <option value=8>8</option>
+                          <option value=9>9</option>
+                          <option value=10>10</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+                  <div class="form-group" id="otherFieldDiv5">
+                      <label class="form-label" for="otherField2">If additional guests will be attending, please state their names.</label>
+                      <textarea class="form-control" id="otherField2" rows="4" name="additionalGuests"></textarea>
+                  </div>
+                  <div class="form-group" id="otherFieldDiv6">
+                    <label class="form-label" for="otherField3">Please leave a song request you may have.</label>
+                    <textarea class="form-control" id="otherField3" rows="4" name="songRequests"></textarea>
+                  </div>
+                  <div class="form-group" id="otherFieldDiv7">
+                    <label class="form-label" for="otherField4">Message</label>
+                    <textarea class="form-control" id="otherField4" rows="4" name="rsvpMessage"></textarea>
+                  </div>
+            
+            <button type="submit" class="btn btn-warning">Send</button>
+          </form>
         </div>
       </div>
     </div>
-
   </section>
 
   <!-- Details Section -->
   <section id="details">
-    <div class="row">
-      <div class="col-lg-6 details-container">
-        <h1 class="details-header">The Details</h1>
-        <hr class="details-hr" />
-        <p class="details-p">Friday, September 11th, 2020</p>
-        <p class="details-p">5:00 PM</p>
-        <br><br><br />
-        <h3 class="details-h3">Ceremony & Reception</h3><br />
-        <p class="details-p">Hatfield Farms</p>
-        <p class="details-p">1840 Hammonds Plains Rd, <br />Hammonds Plains, NS B4B 1P4</p>
-        <hr class="details-hr" />
+      <div class="details-container">
+        <h1 class="details-header-1">The Wedding Details</h1>
+        <p class="details-p">Please join Mallory and Shawn on <strong>Friday, September 11th, 2020</strong> as we celebrate our wedding.</p>
       </div>
+      <div class="row">
+        <div class="col-lg-6">
+            <h1 class="details-header-2">Timeline</h1>
+            <div class="container">
+                <ul class="timeline">
+                    <li>
+                      <div class="timeline-badge"><i class="fas fa-car"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">5:00 PM - Arrival Time for Guests</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p class="details-p">Hatfield Farm</p>
+                          <p class="details-p">1840 Hammonds Plains Rd, <br />Hammonds Plains, NS B4B 1P4</p>
+                          <br/><p>Arrival will take place at Hatfield Farm's Barnyard where there will be free parking and a wagon or shuttle ride departing for Fort Clayton.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge warning"><i class="fas fa-book-open"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">5:45 PM - Beginning of Ceremony</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>Located just a short wagon ride away is Fort Clayton. Fort Clayton is where the ceremony, dinner, and reception will all take place.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="timeline-badge danger"><i class="fas fa-utensils"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">7:00 PM - Dinner</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>Dinner will be served.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge success"><i class="fas fa-music"></i></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">8:30 PM - Reception</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>Music and Dancing.</p>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
       <div class="col-lg-6 details-container">
         <div class="names">
-          <h1 class="details-header">The Wedding Party</h1>
+          <h1 class="details-header-2">The Wedding Party</h1>
           <p class="details-p">Mallory Berkvens - Bride</p>
-          <p class="details-p">Carissa Chapman - Maid of Honour</p>
+          <p class="details-p">Carissa Chapman - Maid of Honor</p>
           <p class="details-p">Kaitlan Kelly - Bridesmaid</p>
           <p class="details-p">Jenny Bowie - Bridesmaid</p>
           <p class="details-p">Shawn Teasdale - Groom</p>
@@ -220,7 +347,7 @@
         </a>
       </div>
       <div class="credit">
-        <a href="http://www.jwellsphotography.ca/" class="credit-link"><em>J Wells Photography</em></a>
+        -     <a href="http://www.jwellsphotography.ca/" class="credit-link"><em>J Wells Photography</em></a>
       </div>
     </div>
 
