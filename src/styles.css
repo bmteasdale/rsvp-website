@@ -5,6 +5,8 @@ html {
   margin: 0;
 }
 
+/* Title Section */
+
 #title {
   width: 100vw;
   background-image: url(./images/Mal-Shawn-header.png);
@@ -50,7 +52,6 @@ html {
 
 
 /* Bootstrap Modal */
-
 .modal-content {
   text-align: center;
   background-color: #eadea6;
@@ -61,22 +62,25 @@ html {
   transform: rotate(45deg);
 }
 .modal-body {
+  text-align: center;
   align-items: center;
 }
 .rsvp-icon {
   padding: 30px;
 }
-.form-check-input {
-  margin: 3% auto;
-  width: 25vw;
-  display: block;
+.options {
+  align-items: center;
+  text-align: left;
 }
-label {
-  font-size: 1.3rem;
+.options select {
+  float: right;
+  text-align: right;
+}
+.form-label {
   padding-top: 15px;
 }
-.warning-p {
-  padding-top: 15px;
+.list-group-item {
+  color: black;
 }
 .btn {
   border-color: #eadea6;
@@ -111,27 +115,217 @@ button:focus { outline: none; }
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   padding-top: 70px;
-  background-color: #efe9cc;
+  background-color: #efe9cc; /* efe9cc */
 }
 .details-container {
   padding-bottom: 70px;
 }
-.details-header {
+.details-header-1, .details-header-2 {
   font-family: 'Dancing Script', cursive;
   font-weight: 100;
-  font-size: 350%;
+  font-size: 400%;
   padding-bottom: 50px;
 }
-.details-hr {
-  height:2px;
-  width: 50vw;
+.details-header-2 {
+  font-size: 350%;
 }
+.details-p {
+  color: black;
+}
+.details-hr {
+  height: 2px;
+  width: 65%;
+}
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+
+  .timeline:before {
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      content: " ";
+      width: 3px;
+      background-color: #eeeeee;
+      left: 50%;
+      margin-left: -1.5px;
+  }
+
+  .timeline > li {
+      margin-bottom: 20px;
+      position: relative;
+  }
+
+      .timeline > li:before,
+      .timeline > li:after {
+          content: " ";
+          display: table;
+      }
+
+      .timeline > li:after {
+          clear: both;
+      }
+
+      .timeline > li:before,
+      .timeline > li:after {
+          content: " ";
+          display: table;
+      }
+
+      .timeline > li:after {
+          clear: both;
+      }
+
+      .timeline > li > .timeline-panel {
+          width: 46%;
+          float: left;
+          border: 1px solid #d4d4d4;
+          border-radius: 2px;
+          padding: 20px;
+          position: relative;
+          -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      }
+
+          .timeline > li > .timeline-panel:before {
+              position: absolute;
+              top: 26px;
+              right: -15px;
+              display: inline-block;
+              border-top: 15px solid transparent;
+              border-left: 15px solid #ccc;
+              border-right: 0 solid #ccc;
+              border-bottom: 15px solid transparent;
+              content: " ";
+          }
+
+          .timeline > li > .timeline-panel:after {
+              position: absolute;
+              top: 27px;
+              right: -14px;
+              display: inline-block;
+              border-top: 14px solid transparent;
+              border-left: 14px solid #fff;
+              border-right: 0 solid #fff;
+              border-bottom: 14px solid transparent;
+              content: " ";
+          }
+
+      .timeline > li > .timeline-badge {
+          color: #fff;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          font-size: 1.4em;
+          text-align: center;
+          position: absolute;
+          top: 16px;
+          left: 50%;
+          margin-left: -25px;
+          background-color: #999999;
+          z-index: 100;
+          border-top-right-radius: 50%;
+          border-top-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          border-bottom-left-radius: 50%;
+      }
+
+      .timeline > li.timeline-inverted > .timeline-panel {
+          float: right;
+      }
+
+          .timeline > li.timeline-inverted > .timeline-panel:before {
+              border-left-width: 0;
+              border-right-width: 15px;
+              left: -15px;
+              right: auto;
+          }
+
+          .timeline > li.timeline-inverted > .timeline-panel:after {
+              border-left-width: 0;
+              border-right-width: 14px;
+              left: -14px;
+              right: auto;
+          }
+
+.timeline-badge.primary {
+  background-color: #2e6da4 !important;
+}
+
+.timeline-badge.success {
+  background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+  background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+  background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+  background-color: #5bc0de !important;
+}
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0;
+}
+
+  .timeline-body > p + p {
+      margin-top: 5px;
+  }
+
+@media (max-width: 767px) {
+  ul.timeline:before {
+      left: 40px;
+  }
+
+  ul.timeline > li > .timeline-panel {
+      width: calc(100% - 90px);
+      width: -moz-calc(100% - 90px);
+      width: -webkit-calc(100% - 90px);
+  }
+
+  ul.timeline > li > .timeline-badge {
+      left: 15px;
+      margin-left: 0;
+      top: 16px;
+  }
+
+  ul.timeline > li > .timeline-panel {
+      float: right;
+  }
+
+      ul.timeline > li > .timeline-panel:before {
+          border-left-width: 0;
+          border-right-width: 15px;
+          left: -15px;
+          right: auto;
+      }
+
+      ul.timeline > li > .timeline-panel:after {
+          border-left-width: 0;
+          border-right-width: 14px;
+          left: -14px;
+          right: auto;
+      }
+}
+
 
 
 /* Gallery Section */
 
 #gallery {
-  background-color: #eadea6;
+  background-color: #eadea6;/* #eadea6; */
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 150px;
   text-align: center;
@@ -141,17 +335,12 @@ button:focus { outline: none; }
 .gallery-header {
   font-family: 'Dancing Script', cursive;
   font-weight: 100;
-  font-size: 350%;
+  font-size: 400%;
 }
 .outer-carosel-container {
   padding-top: 75px;
   margin: 0 auto;
   height: 100%;
-}
-.carousel-inner {
-  border-radius: 25px;
-  background-color: rgba(0,0,0,0);
-  overflow: hidden;
 }
 .credit {
   padding-top: 5px;
@@ -202,5 +391,10 @@ button:focus { outline: none; }
   }
   .title-header-3 {
     font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 990px) {
+  .list-group-item {
+    display: inline-grid;
   }
 }
