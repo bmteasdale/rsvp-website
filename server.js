@@ -12,7 +12,7 @@ const app = express();
 app.use('/src', express.static(path.join(__dirname, 'src')));
 
 // MongoDB Atlas connection URI
-mongoose.connect('mongodb+srv://'+ process.env.CLUSTER_USER +':' + process.env.CLUSTER_PASS +'@rsvp-form-data-e9b0b.mongodb.net/'+ process.env.DB_NAME +'?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_URI,
 {
     useNewUrlParser: true,
     useUnifiedTopology: true

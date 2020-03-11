@@ -10,6 +10,5 @@ notes.txt
 !.vscode/extensions.json
 *.code-workspace
 
-images/
 node_modules/
 *.env

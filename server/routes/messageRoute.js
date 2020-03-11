@@ -7,18 +7,13 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.post('/message-submit', async (req, res) => {
-    var date_ob = new Date();
-    var Day = date_ob.getDate();
-    var Month = date_ob.getMonth() + 1;
-    var Year = date_ob.getFullYear();
-    var CurrentDate = Year + '/' + Month + '/' + Day;
 
     var Message = new MessageModel({
         first_name: req.body.fname,
         last_name: req.body.lname,
         email: req.body.email,
         message: req.body.message,
-        date_sent: CurrentDate
+        date_sent: new Date()
     })
 
     try {
