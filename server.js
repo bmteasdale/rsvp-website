@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const chalk = require('chalk');
 const rsvpRouter = require('./server/routes/rsvpRoute');
 const messageRouter = require('./server/routes/messageRoute')
@@ -8,7 +9,7 @@ require('dotenv').config()
 const app = express();
 
 // Use Static files
-app.use('/src', express.static(__dirname + '/src'));
+app.use('/src', express.static(path.join(__dirname, 'src')));
 
 // MongoDB Atlas connection URI
 mongoose.connect('mongodb+srv://'+ process.env.CLUSTER_USER +':' + process.env.CLUSTER_PASS +'@rsvp-form-data-e9b0b.mongodb.net/'+ process.env.DB_NAME +'?retryWrites=true&w=majority',
