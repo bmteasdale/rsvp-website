@@ -1,20 +1,33 @@
-const RSVPModel = require('../models/RSVPModel');
 const express = require('express');
+const RSVPModel = require('../models/RSVPModel');
 const router = express.Router();
 
-router.get('/demo', async (req, res) => res.send({ msg: 'user api Works' }));
 
 // Search for RSVP from db.
-router.get('/rsvp/:queryName', (req, res) => {
+router.get('/rsvp/:queryName', async (req, res) => {
     var { queryName } = req.params;  
-    RSVPModel.find({"rsvps.name": queryName}).then( rsvps => res.send(rsvps) );
+    await RSVPModel.find({"rsvps.name": queryName}).then( rsvps => res.send(rsvps) );
 });
 
-
-// 
-// Update RSVP -- later step
-// router.put('/rsvp/:id', (req, res) => {
-//     const { id } = req.params;
-// })
+// Update RSVP 
+router.put('/rsvp/:doc', async (req, res) => {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var fullDate = `${day}/${month}/${year}`
+    // retrieve JSON document passed through URL
+    const doc = req.params.doc;
+    // decode encoded URL parameters and parse JSON from string.
+    var parsedDoc = JSON.parse(decodeURIComponent(doc));
+    await RSVPModel.updateOne({ _id: parsedDoc._id }, { rsvps: parsedDoc.rsvps, date_submitted: fullDate }, function (error, res) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log('RSVP successfully updated!');
+        }
+    });
+})
 
 module.exports = router;

@@ -1,44 +1,62 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import axios from 'axios';
 
 export class AttendenceForm extends Component {
 
+    // Move to next step
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     }
 
+    // Return to previous step
     goBack = e => {
         e.preventDefault();
+        this.props.setResponseStatus(null);
+        this.props.setApiCalls(0);
         this.props.prevStep();
     };
 
+    // Method is automatically called when this component is rendered.
     componentDidMount() {
-        this.fetchRSVP();
+        const { values } = this.props;
+        if (values.apiCalls === 0) {
+            this.fetchRSVP();
+            this.props.setApiCalls(1);
+        }
+
     };
 
+    // Fetch RSVP from server side.
+    // If RSVP exists, change validResponse from null to true
+    // using setResponseStatus
     fetchRSVP = async () => {
-        var { values } = this.props;
+        var { values, setRSVP, setResponseStatus } = this.props;
         await axios.get('/api/rsvp/' + values.queryName)
         .then((res) => {
-            this.props.setRSVP(res.data);
+            setRSVP(res.data);
+            if (!res.data.length)
+                setResponseStatus(false);
+            else 
+                setResponseStatus(true);
         })
         .catch(() => {
-            console.log('Error: Couldn\'t retreive data.');
+            setResponseStatus(false);
         });
     };
     
+    // Render component based off response status.
     showComponent = () => {
-        var { values } = this.props; 
-        if(!values.rsvps.length) {
+        const { values } = this.props; 
+        if( values.validResponse === false ) {
             return (
                 // No RSVP Found, have button to go back to step 1
                 <div>
                     <h2>Oops.. No RSVP found under the name of "{values.queryName}"</h2>
                     <Button 
                         variant="warning"
-                        className="btn" 
+                        className="btn continue-btn"
                         type="submit"
                         href="/RSVP"
                         block>
@@ -46,32 +64,17 @@ export class AttendenceForm extends Component {
                     </Button>
                 </div>
             );
-        } else {
+        } else if ( values.validResponse === true ) {
             // RSVP was found, render names and radio buttons for attendence
             return (
                 <div>                    
                     <Form>
-                        {/* <Form.Group controlId="formBasicEmail">
-                            <p className="RSVPName">Brendan Teasdale</p>
-                            <ToggleButtonGroup className="attendenceBtn" type="radio" name="options" defaultValue={"Joyfully Accepts"}>
-                                <ToggleButton className="btn" value={"Joyfully Accepts"} variant="warning">Joyfully Accepts</ToggleButton>
-                                <ToggleButton className="btn" value={"Regretfully Declines"} variant="warning">Regretfully Declines</ToggleButton>
-                            </ToggleButtonGroup>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
-                            <p className="RSVPName">Rose Teasdale</p>
-                            <ToggleButtonGroup className="attendenceBtn" type="radio" name="options" defaultValue={"Joyfully Accepts"}>
-                                <ToggleButton className="btn" value={"Joyfully Accepts"} variant="warning">Joyfully Accepts</ToggleButton>
-                                <ToggleButton className="btn" value={"Regretfully Declines"} variant="warning">Regretfully Declines</ToggleButton>
-                            </ToggleButtonGroup>
-                        </Form.Group> */}
                         <h3>Attendence Form</h3>
-
-                        {/* Where ul will go */}
-
+                        {/* render list of rsvp names here */}
+                        { this.attendanceForm(values.rsvps[0].rsvps) }
                         <Button 
                             variant="warning"
-                            className="btn" 
+                            className="btn continue-btn" 
                             type="submit"
                             onClick={this.continue}
                             block>
@@ -89,29 +92,61 @@ export class AttendenceForm extends Component {
                 </div>
             )
         }
+        // render loading component
+        else if (values.validResponse === null) {
+            return(
+                <div>Searching....</div>
+            )
+        }
     };
 
-    listRSVPs = () => {
+    // used to update attendance in state.
+    setAttendance = (value, index) => {
+        const { handleAttendanceChange } = this.props;
+        handleAttendanceChange(value, index);
+    };
+    // sets default value for attendance to previous value from mongo
+    // or otherwise "Joyfully Accepts" (Default)
+    getAttendanceValue(index) {
         const { values } = this.props;
-        values.rsvps.map((rsvp) => {
-            return (
-                <li>rsvp.name</li>
+        return (values.rsvps[0].rsvps[index].attendance)
+    }
+
+    // Method to render list of names RSVP fetched from fetchRSVP
+    attendanceForm = (rsvps) => {
+        this.setAttendance.bind(this);
+        return (
+            rsvps.map( (rsvp, index) =>
+            <div key={index} className="attendance-form" onChange={(event) => {this.setAttendance(event.target.value, index)}}>
+                <ul className="list-group">
+                    <li className="list-group-item RSVPName">{rsvp.name}
+                        <span>
+                        <ToggleButtonGroup 
+                            ref="attendance"
+                            key={rsvp._id} 
+                            className="attendenceBtn"
+                            type="radio" 
+                            name="options"
+                            defaultValue={this.getAttendanceValue(index)}>
+                            <ToggleButton className="btn" value={"Joyfully Accepts"} variant="outline-warning">Joyfully Accepts</ToggleButton>
+                            <ToggleButton className="btn" value={"Regretfully Declines"} variant="outline-warning">Regretfully Declines</ToggleButton>
+                        </ToggleButtonGroup>
+                        </span>
+                    </li>
+                </ul>
+            </div>
             )
-        });
+        )
     };
 
     render() {
         return (
             <div className="RSVPForm">
-                <small>Step 2 of 4</small>
+                <small>Step 2 of 5</small>
                 {this.showComponent()}
-                <ul>
-                    {this.listRSVPs()}
-                </ul>
             </div>
         );
     }
 }
 
 export default AttendenceForm;
-    

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import NavBar from './NavBar';
 import Title from './Title';
 import Details from './Details';

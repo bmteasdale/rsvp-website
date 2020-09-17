@@ -7,11 +7,9 @@ const RSVPSchema = new Schema({
         required: [true, "No RSVP included"]
     },
     date_submitted: {
-        type: Date,
-        required: [false, "Date was not included in rsvp"],
-        default: Date.now()
+        type: String,
     }
 });
 
-RSVPModel = new mongoose.model('rsvp', RSVPSchema);
+const RSVPModel = new mongoose.model('rsvp', RSVPSchema);
 module.exports = RSVPModel;

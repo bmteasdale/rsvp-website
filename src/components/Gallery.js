@@ -5,7 +5,8 @@ export default function Gallery() {
     return (
         <div id="gallery">
             <h1 className="gallery-header">Gallery</h1>
-                <Carousel>
+            <div className="outer-carosel-container">
+                <Carousel className="gallery-carousel">
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
@@ -59,6 +60,7 @@ export default function Gallery() {
                 <div className="credit">
                     -     <a href="http://www.jwellsphotography.ca/" className="credit-link"><em>J Wells Photography</em></a>
                 </div>
+            </div>
         </div>
     )
 }

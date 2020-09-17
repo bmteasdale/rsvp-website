@@ -1,4 +1,4 @@
-// 404 Page
+// Simple 404 Page
 import React from 'react';
 import '../App.css';
 import NavBar from './NavBar';
@@ -13,7 +13,7 @@ export default function NoMatch() {
             <p>Return to Home Page?</p>
             <Button
                 href={'/'}
-                className={'btn'}
+                className={'btn-warning'}
                 >
                 Return
             </Button>

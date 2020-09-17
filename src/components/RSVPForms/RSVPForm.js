@@ -3,15 +3,18 @@ import NavBar from '../NavBar';
 import SearchRSVP from './SearchRSVP';
 import AttendenceForm from './AttendenceForm';
 import MealChoice from './MealChoice';
+import Accommodations from './Accommodations';
 import Confirm from './Confirm';
 import Success from './Success';
 
 export class RSVPForm extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             step: 1,
             queryName: '',
+            validResponse: null,
+            apiCalls: 0,
             // Step 1
             rsvps: []
         };
@@ -32,15 +35,43 @@ export class RSVPForm extends Component {
             step : step - 1
         });
     };
+
+    // set the response flag.
+    setResponseStatus = (res) => {
+        this.setState({validResponse: res});
+    };
     
-    setRSVP = res => {
-        this.setState({rsvps: res});
+    // After successful call to mongodb, apiCalls in state is set to 1.
+    // This is to avoid the site from making another GET call to mongo
+    // in the case that the user goes back a few steps.
+    setApiCalls = (res) => {
+        this.setState({apiCalls: res});
+    };
+    
+    // update attendance values in state.
+    handleAttendanceChange = (value, index) => {
+        const { rsvps } = this.state;
+        rsvps[0].rsvps[index].attendance = value;
+        this.setState({rsvps: rsvps})
     };
 
+    // update attendance value in state.
+    handleMealOptionChange = (value, index) => {
+        const { rsvps } = this.state;
+        rsvps[0].rsvps[index].mealChoice = value;
+        this.setState({rsvps: rsvps})
+    };
+
+    // Add RSVP's to the state.
+    setRSVP = (res, status) => {
+        this.setState({rsvps: res, validResponse: status});
+    };
+
+    // Render components depending on step value.
     showStep = () => {
         const { step } = this.state;
-        const { queryName, rsvps } = this.state;
-        const values = { queryName, rsvps };
+        const { queryName, rsvps, validResponse, attendances, apiCalls } = this.state;
+        const values = { queryName, rsvps, validResponse, attendances, apiCalls };
         if(step === 1) {
             return (
             <React.Fragment>
@@ -61,6 +92,9 @@ export class RSVPForm extends Component {
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         setRSVP={this.setRSVP}
+                        setResponseStatus={this.setResponseStatus}
+                        setApiCalls={this.setApiCalls}
+                        handleAttendanceChange={this.handleAttendanceChange}
                         values={values}
                     />
                 </React.Fragment>
@@ -73,6 +107,7 @@ export class RSVPForm extends Component {
                         <MealChoice
                             prevStep={this.prevStep}
                             nextStep={this.nextStep}
+                            handleMealOptionChange={this.handleMealOptionChange}
                             values={values}
                         />
                 </React.Fragment>
@@ -82,10 +117,9 @@ export class RSVPForm extends Component {
             return (
                 <React.Fragment>
                     <NavBar />
-                        <Confirm
+                        <Accommodations
                             prevStep={this.prevStep}
                             nextStep={this.nextStep}
-                            values={values}
                         />
                 </React.Fragment>
             );
@@ -94,12 +128,28 @@ export class RSVPForm extends Component {
             return (
                 <React.Fragment>
                     <NavBar />
-                        <Success/>
+                        <Confirm
+                            prevStep={this.prevStep}
+                            nextStep={this.nextStep}
+                            setRSVP={this.setRSVP}
+                            values={values}
+                        />
+                </React.Fragment>
+            );
+        }
+        else if (step === 6) {
+            return (
+                <React.Fragment>
+                    <NavBar />
+                        <Success
+                            values={values}
+                        />
                 </React.Fragment>
             );
         }
     };
 
+    // Handle changes to input fields
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
     };

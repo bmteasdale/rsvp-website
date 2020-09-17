@@ -5,7 +5,7 @@ import { Nav } from 'react-bootstrap';
 
 export default function NavBar() {
     return (
-        <div>
+        <div id="NavBar">
            {/* <!-- Navigation Bar --> */}
             <Navbar bg="light" expand="lg">
             <Navbar.Brand href="index.html">Mallory | Shawn</Navbar.Brand>

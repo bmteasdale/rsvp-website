@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Details() {
     return (
@@ -6,7 +6,7 @@ export default function Details() {
             {/* <!-- Details Section --> */}
                 <div className="details-container">
                     <h1 className="details-header-1">The Wedding Details</h1>
-                    <p className="details-p">Please join Mallory and Shawn on <strong>Friday, September 11th, 2020</strong> as we celebrate our wedding.</p>
+                    <p className="details-p">Please join Mallory and Shawn on <strong>Friday, June 18th, 2021</strong> as we celebrate our wedding.</p>
                 </div>
                 <div className="row">
                     <div className="col-lg-6">
