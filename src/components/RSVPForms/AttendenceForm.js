@@ -115,29 +115,37 @@ export class AttendenceForm extends Component {
     // Method to render list of names RSVP fetched from fetchRSVP
     attendanceForm = (rsvps) => {
         this.setAttendance.bind(this);
-        return (
-            rsvps.map( (rsvp, index) =>
-            <div key={index} className="attendance-form" onChange={(event) => {this.setAttendance(event.target.value, index)}}>
-                <ul className="list-group">
-                    <li className="list-group-item RSVPName">{rsvp.name}
-                        <span>
-                        <ToggleButtonGroup 
-                            ref="attendance"
-                            key={rsvp._id} 
-                            className="attendenceBtn"
-                            type="radio" 
-                            name="options"
-                            defaultValue={this.getAttendanceValue(index)}>
-                            <ToggleButton className="btn" value={"Joyfully Accepts"} variant="outline-warning">Joyfully Accepts</ToggleButton>
-                            <ToggleButton className="btn" value={"Regretfully Declines"} variant="outline-warning">Regretfully Declines</ToggleButton>
-                        </ToggleButtonGroup>
-                        </span>
-                    </li>
-                </ul>
-            </div>
+        let itemsToRender;
+        if(rsvps) {
+            itemsToRender = rsvps.map( (rsvp, index) => 
+                <div key={index} className="attendance-form" onChange={(event) => {this.setAttendance(event.target.value, index)}}>
+                    <ul className="list-group">
+                        <li className="list-group-item RSVPName">{rsvp.name}
+                            <span>
+                            <ToggleButtonGroup 
+                                ref="attendance"
+                                key={rsvp._id} 
+                                className="attendenceBtn"
+                                type="radio" 
+                                name="options"
+                                defaultValue={this.getAttendanceValue(index)}>
+                                <ToggleButton className="btn" value={"Joyfully Accepts"} variant="outline-warning">Joyfully Accepts</ToggleButton>
+                                <ToggleButton className="btn" value={"Regretfully Declines"} variant="outline-warning">Regretfully Declines</ToggleButton>
+                            </ToggleButtonGroup>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
             )
-        )
-    };
+            return (
+            <div>{itemsToRender}</div>
+            )
+        } else {
+            return (
+                itemsToRender = "Loading..."
+            )
+      }
+};
 
     render() {
         return (
