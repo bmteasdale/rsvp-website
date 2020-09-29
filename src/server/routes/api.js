@@ -1,7 +1,11 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const RSVPModel = require('../models/RSVPModel');
-const router = express.Router();
+require('dotenv').config();
 
+const app = express();
+
+const router = express.Router();
 
 // Search for RSVP from db.
 router.get('/rsvp/:queryName', async (req, res) => {
