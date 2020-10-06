@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "server": "nodemon server.js",
     "dev": "concurrently -n 'server,client' -c 'yellow,blue' \"npm run server\" \"npm start\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "engines": {
     "node": "11.2.0",
