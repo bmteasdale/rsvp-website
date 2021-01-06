@@ -1,12 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-const firstImage = require("../assets/MALLORY+SHAWN-58.jpg");
-const secondImage = require("../assets/MALLORY+SHAWN-19.jpg");
-const thirdImage = require("../assets/MALLORY+SHAWN-7.jpg");
-const fourthImage = require("../assets/MALLORY+SHAWN-86.jpg");
-const fifthImage = require("../assets/MALLORY+SHAWN-65.jpg");
-const sixthImage = require("../assets/MALLORY+SHAWN-45.jpg");
-const seventhImage = require("../assets/MALLORY+SHAWN-69.jpg");
+const firstImage = require("../assets/MALLORY+SHAWN-58.jpg").default;
+const secondImage = require("../assets/MALLORY+SHAWN-19.jpg").default;
+const thirdImage = require("../assets/MALLORY+SHAWN-7.jpg").default;
+const fourthImage = require("../assets/MALLORY+SHAWN-86.jpg").default;
+const fifthImage = require("../assets/MALLORY+SHAWN-65.jpg").default;
+const sixthImage = require("../assets/MALLORY+SHAWN-45.jpg").default;
+const seventhImage = require("../assets/MALLORY+SHAWN-69.jpg").default;
 
 export default function Gallery() {
     return (

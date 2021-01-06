@@ -1,4 +1,5 @@
 import React from 'react';
+const logo = require('../assets/bedbathbeyondlogo.png').default;
 
 function Registry() {
     return (
@@ -6,7 +7,7 @@ function Registry() {
             <h1 className="registry-header-1">Our Wedding Registry</h1>
             <div className="row">
                 <div className="col-lg-6">
-                    <a href="https://www.bedbathandbeyond.ca/store/giftregistry/registry-search-guest?q=Mallory%20Berkvens&fq=&scrollTop=false&rows=10&start=0&searchMode=byName"><img src={require("../assets/bedbathbeyondlogo.png")} className="registry-img" alt="registry1"/></a>
+                    <a href="https://www.bedbathandbeyond.ca/store/giftregistry/registry-search-guest?q=Mallory%20Berkvens&fq=&scrollTop=false&rows=10&start=0&searchMode=byName"><img src={logo} className="registry-img" alt="registry1"/></a>
                 </div>
                 <div className="col-lg-6">
                     <h3 className="align-left registry-desc"><strong>Need a gift idea?</strong></h3>
