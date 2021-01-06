@@ -8,8 +8,8 @@ import Confirm from './Confirm';
 import Success from './Success';
 
 export class RSVPForm extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             step: 1,
             queryName: '',

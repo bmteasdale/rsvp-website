@@ -58,7 +58,7 @@ export class MealChoice extends Component {
         return (
             <div className="RSVPForm">
                 <small>Step 3 of 5</small>
-                <h3>Meal Choice Form</h3>
+                <h3>Meal Choice</h3>
                 {this.mealChoiceForm(values.rsvps[0].rsvps)}
                 <Button 
                     variant="warning"

@@ -64,7 +64,8 @@ export class AttendenceForm extends Component {
             return (
                 // No RSVP Found, have button to go back to step 1
                 <div>
-                    <h2>Oops.. No RSVP found under the name of "{values.queryName}"</h2>
+                    <h2 className="RSVPHeader">Sorry...</h2>
+                    <p>No RSVP found under the name of "{values.queryName}"</p>
                     <Button 
                         variant="warning"
                         className="btn continue-btn"
@@ -80,7 +81,7 @@ export class AttendenceForm extends Component {
             return (
                 <div>                    
                     <Form>
-                        <h3>Attendence Form</h3>
+                        <h3>Attendence</h3>
                         {/* render list of rsvp names here */}
                         { this.attendanceForm(values.rsvps[0].rsvps) }
                         <Button 

@@ -1,82 +1,48 @@
 import React from 'react';
-
+import {Card, ListGroup} from 'react-bootstrap';
 export default function Details() {
     return (
         <div id="details">
             {/* <!-- Details Section --> */}
                 <div className="details-container">
-                    <h1 className="details-header-1">The Wedding Details</h1>
-                    <p className="details-p">Please join Mallory and Shawn on <strong>Friday, June 18th, 2021</strong> as we celebrate our wedding.</p>
-                </div>
-                <div className="row">
-                    <div className="col-lg-6">
-                        <h1 className="details-header-2">Timeline</h1>
-                        <div className="container">
-                            <ul className="timeline">
-                                <li>
-                                <div className="timeline-badge"><i className="fas fa-car"></i></div>
-                                <div className="timeline-panel">
-                                    <div className="timeline-heading">
-                                        <h4 className="timeline-title">5:00 PM - Arrival Time for Guests</h4>
-                                    </div>
-                                    <div className="timeline-body">
-                                        <p className="details-p">Hatfield Farm</p>
-                                        <p className="details-p">1840 Hammonds Plains Rd, <br />Hammonds Plains, NS B4B 1P4</p>
-                                        <br/><p>Arrival will take place at Hatfield Farm's Barnyard where there will be free parking and a wagon or shuttle ride departing for Fort Clayton.</p>
-                                    </div>
-                                </div>
-                                </li>
-                                <li className="timeline-inverted">
-                                <div className="timeline-badge warning"><i className="fas fa-book-open"></i></div>
-                                <div className="timeline-panel">
-                                    <div className="timeline-heading">
-                                        <h4 className="timeline-title">5:45 PM - Beginning of Ceremony</h4>
-                                    </div>
-                                    <div className="timeline-body">
-                                        <p>Located just a short wagon ride away is Fort Clayton. Fort Clayton is where the ceremony, dinner, and reception will all take place.</p>
-                                    </div>
-                                </div>
-                                </li>
-                                <li>
-                                <div className="timeline-badge danger"><i className="fas fa-utensils"></i></div>
-                                <div className="timeline-panel">
-                                    <div className="timeline-heading">
-                                        <h4 className="timeline-title">7:00 PM - Dinner</h4>
-                                    </div>
-                                    <div className="timeline-body">
-                                        <p>Dinner will be served.</p>
-                                    </div>
-                                </div>
-                                </li>
-                                <li className="timeline-inverted">
-                                <div className="timeline-badge success"><i className="fas fa-music"></i></div>
-                                <div className="timeline-panel">
-                                    <div className="timeline-heading">
-                                        <h4 className="timeline-title">8:30 PM - Reception</h4>
-                                    </div>
-                                    <div className="timeline-body">
-                                        <p>Music and Dancing.</p>
-                                    </div>
-                                </div>
-                                </li>
-                            </ul>
+                    <h1 className="details-header-1">The Schedule of Events</h1>
+                    <p className="details-p">Please join Mallory and Shawn on <strong className="wedding-date">Friday, June 18th, 2021</strong> as we celebrate our wedding.</p>
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <Card style={{ width: '100%' }}>
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item>
+                                        <i className="fas fa-car fa-2x"></i><br />
+                                        5:00PM - Arrival Time<br /><br />
+                                        <p>Hatfield Farms <br />
+                                        1840 Hammonds Plains Rd,<br />
+                                        Hammonds Plains, NS <br />
+                                        B4B 1P4</p>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <i className="fas fa-book-open fa-2x"></i><br />
+                                        5:45PM - Beginning of Ceremony<br /><br />
+                                        <p>Located just a short wagon ride away is Fort Clayton. <br />Fort Clayton is where the ceremony, dinner, and reception will all take place.
+                                        </p>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <i className="fas fa-utensils fa-2x"></i><br />
+                                        7:00PM - Supper<br /><br />
+                                        <p>We ask that you select your meal from one of the choices on submission of your RSVP</p>
+                                        <i className="fas fa-seedling"></i> - Vegetarian option available
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                    <i className="fas fa-music fa-2x"></i><br />
+                                        8:30PM - Reception<br /><br />
+                                        <p>Dance will begin.</p>
+                                        <p>Rubber rodeo, mini golf, and bonfire pits will be open for all guests.</p>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Card>
                         </div>
                     </div>
-                <div className="col-lg-6 details-container">
-                    <div className="names">
-                    <h1 className="details-header-2">The Wedding Party</h1>
-                    <p className="details-p">Mallory Berkvens - Bride</p>
-                    <p className="details-p">Carissa Chapman - Maid of Honor</p>
-                    <p className="details-p">Kaitlan Kelly - Bridesmaid</p>
-                    <p className="details-p">Jenny Bowie - Bridesmaid</p>
-                    <p className="details-p">Shawn Teasdale - Groom</p>
-                    <p className="details-p">Brendan Teasdale - Best Man</p>
-                    <p className="details-p">John Weir - Groomsman</p>
-                    <p className="details-p">Steven Gillis - Groomsman</p>
-                    <p className="details-p">Tyler VanOirschot - Groomsman</p>
-                    </div>
                 </div>
-            </div>
+                <hr className="style-eight" />
         </div>
     )
 }

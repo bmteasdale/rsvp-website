@@ -1,10 +1,8 @@
-console.log("Server.js started.")
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
-console.log("Dependencies Enviroment Loaded")
 
 const app = express();
 
