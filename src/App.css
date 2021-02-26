@@ -12,9 +12,6 @@ html {
     height: 100vh;
 }
 
-.align-left {
-    text-align: left;
-}
 
 /* Glyph, by Harry Roberts */
 hr.style-eight {
@@ -34,6 +31,7 @@ hr.style-eight:after {
     padding: 0 0.25em;
     background: #efe9cc;
 }
+
 
 .style-eight {
     width: 92%;
@@ -141,6 +139,7 @@ button:focus {
 /* RSVP Form */
 .RSVPForm, .confirmationForm {
     margin: 8% 10%;
+    padding-bottom: 50px;
     font-family: 'Montserrat', sans-serif;
 }
 .RSVPHeader {
@@ -179,12 +178,12 @@ button:focus {
     font-family: 'Montserrat', sans-serif;
 }
 .timeleft {
-    font-size: 3vw;
+    font-size: 2rem;
 }
 
-/* Details Section */
+/* Schedule Section */
 
-#details {
+#schedule, #details {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-bottom: 70px;
@@ -192,28 +191,27 @@ button:focus {
     /* eadea6 */
 }
 
-.details-container {
+.schedule-container, .details-container {
     padding: 0 4%;
 }
 
-.details-header-1 {
-    font-size: 8vh;
+.schedule-header-1, .countdown-header-1 {
     font-family: 'Dancing Script', cursive;
     font-weight: 100;
     padding-bottom: 50px;
 }
-.details-header-2 {
+.schedule-header-2 {
     font-family: 'Dancing Script', cursive;
     font-size: 150%;
     font-weight: 100;
     padding-bottom: 50px;
 }
 
-.details-header-2 {
+.schedule-header-2 {
     font-size: 350%;
 }
 
-.details-p {
+.schedule-p {
     color: black;
     font-size: 150%;
 }
@@ -222,7 +220,7 @@ button:focus {
     font-size: larger;
 }
 
-.details-hr {
+.schedule-hr {
     height: 2px;
     width: 65%;
 }
@@ -242,7 +240,6 @@ button:focus {
 .gallery-header {
     font-family: 'Dancing Script', cursive;
     font-weight: 100;
-    font-size: 400%;
     padding-bottom: 70px;
 }
 
@@ -271,6 +268,18 @@ button:focus {
     color: lightgrey;
 }
 
+/* Guest Accommodations - Main Page */
+#guestAccommodations {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background-color: #efe9cc;
+    padding-bottom: 70px;
+}
+
+.accommodations-header-1 {
+    font-family: 'Dancing Script', cursive;
+    padding-bottom: 50px;
+}
 
 /* Registry Section */
 
@@ -284,7 +293,6 @@ button:focus {
 
 .registry-header-1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 8vh;
     padding-bottom: 50px;
 }
 
@@ -297,6 +305,26 @@ button:focus {
 
 .registry-desc {
     font-family: 'Montserrat', sans-serif;
+    line-height: 2;
+    padding: 0 50px;
+}
+
+/* Wedding Party Section */
+#weddingParty {
+    height: fit-content;
+    padding: 0 4% 70px;
+    background-color: #efe9cc;
+    /* #eadea6 */
+    text-align: center;
+}
+.party-header-1 {
+    font-size: 300%;
+    font-family: 'Dancing Script', cursive;
+    padding-bottom: 50px;
+}
+
+.party-names {
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -304,7 +332,7 @@ button:focus {
 
 #footer {
     font-family: 'Montserrat', sans-serif;
-    height: 150px;
+    height: 125px;
     background-color: #eadea6;
     text-align: center;
 }
@@ -323,7 +351,7 @@ button:focus {
 }
 
 .copy {
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 
@@ -354,5 +382,6 @@ button:focus {
     .confirmationTable {
         overflow-x: auto;
     }
+   
     
 }

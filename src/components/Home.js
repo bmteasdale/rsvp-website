@@ -2,9 +2,12 @@ import React from 'react';
 import NavBar from './NavBar';
 import Title from './Title';
 import Countdown from './Countdown';
-import Details from './Details';
+import Schedule from './Schedule';
 import Gallery from './Gallery';
+import GuestAccommodations from './GuestAccommodations';
+import WeddingParty from './WeddingParty';
 import Registry from './Registry'
+import Details from './Details';
 import Footer from './Footer';
 
 
@@ -14,9 +17,12 @@ export default function Home() {
             <NavBar />
             <Title />
             <Countdown />
-            <Details />
+            <Schedule />
+            <WeddingParty />
             <Gallery />
+            <GuestAccommodations />
             <Registry />
+            <Details />
             <Footer />
         </div>
     )

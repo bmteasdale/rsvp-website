@@ -28,7 +28,7 @@ export class Accommodations extends Component {
                             <h6>133 Kearney Lake Drive Rd, Halifax, NS</h6>
                             <h6>Rate is <strong>$129/night</strong> (plus tax)*</h6>
                             <h6>Includes parking, free WiFi, local calls, and buffet breakfast.</h6>
-                            <h6>You can call (902)445-1100 or toll-free 1-800-565-3086 to make reservations</h6><br />
+                            <h6>To make reservations please call (902)445-1100 or toll-free 1-800-565-3086</h6><br />
                             <h6>* Please let the hotel know you are with the Berkvens/Teasdale Wedding!</h6>
                         </Card.Body>
                     </Card>

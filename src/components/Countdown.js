@@ -41,7 +41,7 @@ export class Countdown extends Component {
         const {days, hours, minutes, seconds} = this.state;
         return (
             <div id="countdown">
-                <h1 className="details-header-1">Countdown to our special day!</h1>
+                <h1 className="countdown-header-1">Countdown to our special day!</h1>
                 <span className="timeleft">{`${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds!`}</span>
                 <span className="spacer"></span><hr className="style-eight" />
             </div>

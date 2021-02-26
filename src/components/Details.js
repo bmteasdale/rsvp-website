@@ -1,48 +1,42 @@
 import React from 'react';
 import {Card, ListGroup} from 'react-bootstrap';
-export default function Details() {
+
+function Details() {
     return (
         <div id="details">
-            {/* <!-- Details Section --> */}
-                <div className="details-container">
-                    <h1 className="details-header-1">The Schedule of Events</h1>
-                    <p className="details-p">Please join Mallory and Shawn on <strong className="wedding-date">Friday, June 18th, 2021</strong> as we celebrate our wedding.</p>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <Card style={{ width: '100%' }}>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>
-                                        <i className="fas fa-car fa-2x"></i><br />
-                                        5:00PM - Arrival Time<br /><br />
-                                        <p>Hatfield Farms <br />
-                                        1840 Hammonds Plains Rd,<br />
-                                        Hammonds Plains, NS <br />
-                                        B4B 1P4</p>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <i className="fas fa-book-open fa-2x"></i><br />
-                                        5:45PM - Beginning of Ceremony<br /><br />
-                                        <p>Located just a short wagon ride away is Fort Clayton. <br />Fort Clayton is where the ceremony, dinner, and reception will all take place.
-                                        </p>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <i className="fas fa-utensils fa-2x"></i><br />
-                                        7:00PM - Supper<br /><br />
-                                        <p>We ask that you select your meal from one of the choices on submission of your RSVP</p>
-                                        <i className="fas fa-seedling"></i> - Vegetarian option available
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                    <i className="fas fa-music fa-2x"></i><br />
-                                        8:30PM - Reception<br /><br />
-                                        <p>Dance will begin.</p>
-                                        <p>Rubber rodeo, mini golf, and bonfire pits will be open for all guests.</p>
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        </div>
+            <h1 className="accommodations-header-1">Details</h1>
+            <div className="details-container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <Card style={{ width: '100%' }}>
+                            <ListGroup variant="flush">
+                                <ListGroup.Item>
+                                    <i className="fas fa-user-tie fa-2x"></i><br /><br />
+                                    <p>Dress is smart casual</p>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <i className="fas fa-shuttle-van fa-2x"></i><br /><br />
+                                    <p>Elderly guests or guests with special needs can be driven in and out by vehicle instead of horse-drawn wagon.</p>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <i className="fas fa-parking fa-2x"></i><br /><br />
+                                    <p>Parking is in the main parking lot.</p>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <i className="fas fa-glass-cheers fa-2x"></i><br /><br />
+                                    <p>Guests are to bring their own alcohol if they wish. <br/>* No glass containers please. Cans, plastic, or cardboard only.</p>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <i className="fas fa-laptop fa-2x"></i><br /><br />
+                                    <p>Please visit <a href="https://www.hatfieldfarm.com">www.hatfieldfarm.com</a> for any details.</p>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>
                     </div>
                 </div>
-                <hr className="style-eight" />
+            </div>
         </div>
     )
 }
+
+export default Details

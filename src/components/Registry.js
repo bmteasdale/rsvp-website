@@ -1,21 +1,15 @@
 import React from 'react';
-const logo = require('../assets/bedbathbeyondlogo.png').default;
 
 function Registry() {
     return (
         <div id="registry">
             <h1 className="registry-header-1">Our Wedding Registry</h1>
-            <div className="row">
-                <div className="col-lg-6">
-                    <a href="https://www.bedbathandbeyond.ca/store/giftregistry/registry-search-guest?q=Mallory%20Berkvens&fq=&scrollTop=false&rows=10&start=0&searchMode=byName"><img src={logo} className="registry-img" alt="registry1"/></a>
-                </div>
-                <div className="col-lg-6">
-                    <h3 className="align-left registry-desc"><strong>Need a gift idea?</strong></h3>
-                    <p className="align-left registry-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in purus ut lacus vestibulum eleifend non a felis. Nulla id fringilla ante, et lacinia diam. Duis egestas leo vel ullamcorper cursus. Praesent consectetur, diam sed laoreet venenatis, arcu nibh pharetra ex, at fermentum eros eros sit amet augue. Nunc vehicula auctor dolor eget consequat. Aliquam vitae viverra metus, vitae vulputate quam. Integer et magna leo. Praesent vestibulum mi eu vulputate venenatis. Praesent dignissim et mauris vel interdum. Vivamus pellentesque arcu sed sapien finibus, vel accumsan nunc porttitor. In consectetur vitae felis vel hendrerit. Sed quis tincidunt dolor.</p>
-                </div>
+            <div className="row">                
+                    <p className="registry-desc">Celebrating with you on our special day is the only gift we need. While gifts are appreciated, please know that your well wishes and presence is a present enough. We are fortunate enough to already have nearly everything we need for this new chapter together. Although we have not registered for gifts, we are currently renovating our first home together. If you feel you would like to help, gift cards to Kent or Home Depot would be greatly appreciated.</p>
             </div>
+            <hr className="style-eight"/>
         </div>
     )
 }
 
-export default Registry
+export default Registry;

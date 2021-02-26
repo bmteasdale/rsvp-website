@@ -5,7 +5,7 @@ const secondImage = require("../assets/MALLORY+SHAWN-19.jpg").default;
 const thirdImage = require("../assets/MALLORY+SHAWN-7.jpg").default;
 const fourthImage = require("../assets/MALLORY+SHAWN-86.jpg").default;
 const fifthImage = require("../assets/MALLORY+SHAWN-65.jpg").default;
-const sixthImage = require("../assets/MALLORY+SHAWN-45.jpg").default;
+const sixthImage = require("../assets/MALLORY+SHAWN-47.jpg").default;
 const seventhImage = require("../assets/MALLORY+SHAWN-69.jpg").default;
 
 export default function Gallery() {
