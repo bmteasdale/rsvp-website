@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { Form, Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import axios from 'axios';
-
 export class AttendenceForm extends Component {
 
     // Data in db is in Proper/Title Case
     toProperCase = (queryName) => {
-        return queryName.replace(
-            // regex: \w -> word character, \S* -> multiple non-whitespace characters, \g -> global match
-            /\w\S*/g,
-            function(txt) {
-              return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
+        // Handle MacXxxxx, van Xxxxx
+        var splitName = queryName.split(' ');
+        if(splitName[1].toLowerCase().substr(0) === "van"){
+            return splitName[0][0].toUpperCase() + splitName[0].toLowerCase().substr(1) + " " +  splitName[1].toLowerCase() + " " +  splitName[2][0].toUpperCase() + splitName[2].substr(1).toLowerCase();
+        } else if (splitName[1].toLowerCase().substr(0, 3) === "mac") {
+            return splitName[0][0].toUpperCase() + splitName[0].toLowerCase().substr(1) + " " +  splitName[1][0].toUpperCase() + splitName[1].substr(1, 2).toLowerCase() + splitName[1][3].toUpperCase() + splitName[1].substr(4).toLowerCase();
+        } else {
+            return splitName[0][0].toUpperCase() + splitName[0].toLowerCase().substr(1) + " " + splitName[1][0].toUpperCase() + splitName[1].substr(1).toLowerCase();
+        }
+        
     }
 
     // Move to next step

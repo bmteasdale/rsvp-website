@@ -43,6 +43,7 @@ export class MealChoice extends Component {
                                 <option value="Roast Hip of Beef">Roast Hip of Beef</option>
                                 <option value="Baked Atlantic Salmon">Baked Atlantic Salmon</option>
                                 <option value="Vegetarian Lasagna">Vegetarian Lasagna</option>
+                                <option value="Kids Meal">Kids Meal</option>
                             </Form.Control>
                         </Form.Group>
                         </span>
