@@ -12,7 +12,7 @@ export class SearchRSVP extends Component {
     render() {
         const { values, handleChange } = this.props;
         var today = new Date();
-        var allowRSVP = true ? today <= new Date("May 1, 2021") : false;
+        var allowRSVP = true ? today <= new Date("May 8, 2021") : false;
         if (allowRSVP) {
             return (
                 <div className="RSVPForm">
