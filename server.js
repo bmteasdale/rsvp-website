@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const enforce = require('express-sslify');
+const http = require('http');
 require('dotenv').config();
 
 const app = express();
@@ -9,6 +11,7 @@ const app = express();
 // initialize routes.
 app.use('/api', require('./src/server/routes/api'));
 app.use(bodyParser.json());
+app.use(enforce.HTTPS({trustProtoHeader: true}));
 app.use(express.urlencoded({extended:false}));
 
 // Connect to MongoDB Atlas
@@ -34,4 +37,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, '0.0.0.0', () => console.log(`Server Connection Successful on port ${PORT}!`))
+http.createServer(app).listen(PORT, function() {
+    console.log(`Server Connection Successful on port ${PORT}!`);
+});
